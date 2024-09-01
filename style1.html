@@ -5,56 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div#top {
-            background-color: #04AA6D;
-            margin-bottom: -5px;
-            border-radius: 5px;
+        body{
+            font: 100% Lucida Sans, Verdana;
+            margin: 20px;
+            line-height: 26px;
         }
 
-        div#mid1 {
+        .container{
+            min-width: 900px;
+        }
+
+        .wrapper{
+            position: relative;
+            overflow: auto;
+        }
+
+        #top, #sidebar, #bottom, .menuitem{
+            border-radius: 4px;
+            margin: 4px;
+        }
+
+        #top{
+            background-color: #04AA6D;
+            color : #ffffff;
+            padding: 15px;
+        }
+
+        #menubar {
             width : 200px;
             float : left;
         }
 
-        .menulist {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .menuSelected {
-            background-color: #04AA6D;
-            color: white;
-            border-radius: 3px;
-            padding-left: 2px;
-        }
-
-        .menu {
-            background-color: #f1f1f1;
-            margin-top : 5px;
-            border: 2px solid #d4d4d4;
-            border-radius: 3px;
-            padding-left: 2px;
-        }
-
-        div#mid2 {
+        #main {
             padding: 10px;
             margin: 0 210px;
         }
 
-        div#mid3 {
-            float: right;
+        #sidebar {
             background-color: #32a4e7;
             color: #ffffff;
-            border-radius: 5px;
             padding: 10px;
             width: 180px;
-            padding-left: 10px;
-            padding-right: 19px;
-            margin-top: 15px;
-            right: 7px;
-        }
+            bottom: 0;
+            top: 0;
+            right: 0;
+            position: absolute;
+        }   
 
-        div#bot {
+        #bottom {
             border : 1px solid #d4d4d4;
             background-color: #f1f1f1;
             text-align: center;
@@ -63,77 +61,134 @@
             line-height: 14px;
         }
 
-        .white {
+        #top h1, #top p, #menulist{
+            margin: 0;
+            padding: 0;
+        }
+
+        .menulist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .menuitem {
+            background-color: #f1f1f1;
+            border: 1px solid #d4d4d4;
+            list-style-type: none;
+            padding: 2px;
+            cursor: pointer;
+        }
+        
+        .menuitem:hover{
+            background-color: #ffffff;
+        }
+
+        .menuitem:first-child {
+            background-color: #04AA6D;
+            color: white;
+            font-weight: bold;
+        }
+
+        a{
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        a:hover{
+            text-decoration: none;
+        }
+
+        @media (max-width: 1000px) {
+
+            #sidebar {
+                width: auto; /* 너비 자동 조정 */
+                position: relative; /* 절대 위치 해제 */
+            }
+            #main {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            #menubar {
+                width: auto; /* 너비 자동 조정 */
+                float: none;
+            }
+            #main {
+                margin:0;
+            }
+        }
+
+        .nodeco{
+            text-decoration: none;
+        }
+
+        .nodecoselected{
+            text-decoration: none;
             color: white;
         }
 
-        .padding0 {
-            padding: 0;
-            margin: 0;
-            padding-left: 10px;
-        }
 
-        .Top_downMargin {
-            padding-bottom: 20px;
-        }
-
-        .Top_upMargin {
-            padding-top: 7px;
-        }
     </style>
 </head>
 <body>
+    <div class="container wrapper">
 
-<div id ="top">
-    <h1 class="white padding0 Top_upMargin"> Welcome to My Homepage</h1>
-    <p class="white padding0 Top_downMargin"> Use the menu to select different Stylesheet</p>
-</div>
+            <div id ="top">
+                <h1> Welcome to 22300155's Homepage</h1>
+                <p> Use the menu to select different Stylesheet</p>
+            </div>
 
-<div>
-<div id ="mid1">
-    <ul class="menulist">
-        <li class="menuSelected">Stylesheet 1</li>
-        <li class="menu">Stylesheet 2</li>
-        <li class="menu">Stylesheet 3</li>
-        <li class="menu">Stylesheet 4</li>
-        <li class="menu">No Stylesheet</li>
-    </ul>
-</div>
+        
 
-<div id ="mid3">
-    <h3>Side-Bar</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-    </p>
+        <div class ="wrapper">
+            <div id ="menubar">
+                <ul id="menulist">
+                    <li class="menuitem" onclick="reStyle(0)"><a href="./style1.html" class="nodecoselected">Stylesheet 1</a></li>
+                    <li class="menuitem" onclick="reStyle(1)"><a href="./style2.html" class="nodeco">Stylesheet 2</a></li>
+                    <li class="menuitem" onclick="reStyle(2)">Stylesheet 3</li>
+                    <li class="menuitem" onclick="reStyle(3)">Stylesheet 4</li>
+                    <li class="menuitem" onclick="noStyles()"><a href="nostyle.html" class="nodeco">No Stylesheet</a></li>
+                </ul>
+            </div>
 
+            <div id ="main">
+                <h1>Same Page Different Stylesheets</h1>
+                <p>
+                    This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
+                <br>
+                <a href="./style1.html">Stylesheet 1,</a>
+                <a href="./style2.html">Stylesheet 2,</a>
+                    <a>Stylesheet 3,</a>
+                    <a>Stylesheet 4</a>
+                </p>
+
+                <h2>No Styles</h2>
+                <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
+                <br>
+                <a href="nostyle.html">No Stylesheet</a>
+                </p>
+            </div>
+
+            <div id ="sidebar">
+                <h3>Side-Bar</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div id ="bottom">
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+            </p>
+        </div>
+
+    <div>
     
 
-</div>
-
-<div id ="mid2">
-    <h1>Same Page Different Stylesheets</h1>
-    <p>
-        This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
-    <br>
-    <a href="./style1.html">Stylesheet 1,</a>
-        <a>Stylesheet 2,</a>
-        <a>Stylesheet 3,</a>
-        <a>Stylesheet 4</a>
-    </p>
-
-    <h2>No Styles</h2>
-    <p>This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
-    <br>
-    <a href="https://gentle-faun-6e764b.netlify.app/nostyle">No Stylesheet</a>
-    </p>
-</div>
-
-
-<div id ="bot">
-<p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-</p>
-</div>
-    
 </body>
 </html>
