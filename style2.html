@@ -86,14 +86,13 @@
     }
 
     .menuitem:hover{
+            text-decoration: none;
         background-color: #ffffff;
-        color: #d14836;
     }
 
     a{
         color : #d14836;
         text-decoration: none;
-        color: #d14836;
     }
 
     a:hover{
@@ -105,7 +104,17 @@
             color : #ffffff;
         }
 
+        .nodeco:hover{
+            text-decoration: none;
+            color: #d14836;
+        }
+
     .nodecoselected{
+            text-decoration: none;
+            color: #d14836;
+    }
+
+    .nodecoselected:hover{
             text-decoration: none;
             color: #d14836;
     }
@@ -129,11 +138,11 @@
     <div class="wrapper">
         <div id="menubar">
             <ul id="menulist">
-                <li class="menuitem" onclick="reStyle(0)"><a href="./style1.html" class="nodeco">Stylesheet 1</a></li>
+                <li class="menuitem nodeco" onclick="reStyle(0)"><a href="./style1.html" class="nodeco">Stylesheet 1</a></li>
                 <li class="menuitem" onclick="reStyle(1)"><a href="./style2.html" class="nodecoselected">Stylesheet 2</a></li>
-                <li class="menuitem" onclick="reStyle(2)">Stylesheet 3</li>
-                <li class="menuitem" onclick="reStyle(3)">Stylesheet 4</li>
-                <li class="menuitem" onclick="noStyles()"><a href="nostyle.html" class="nodeco">No Stylesheet</a></li>
+                <li class="menuitem nodeco" onclick="reStyle(2)">Stylesheet 3</li>
+                <li class="menuitem nodeco" onclick="reStyle(3)">Stylesheet 4</li>
+                <li class="menuitem nodeco" onclick="noStyles()"><a href="nostyle.html" class="nodeco">No Stylesheet</a></li>
             </ul>
         </div>
 
